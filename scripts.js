@@ -1,13 +1,16 @@
 
 //api:
 
-const API_URL = 'https://api.fastforex.io/fetch-all?api_key=835f93980a-41550bfc69-rt5paa';
+var myHeaders = new Headers();
+myHeaders.append("apikey", "lRvWzjhj88KvkMW2L2JvWWncagN6os2C");
 
-async function getCurrency(url){
-     const res = await fetch(url);
-     const data = await res.json();
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders
+};
 
-     console.log(data);
-}
-
-getCurrency(API_URL);
+fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
