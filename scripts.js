@@ -9,7 +9,7 @@ var requestOptions = {
   redirect: 'follow',
   headers: myHeaders
 };
-let allSymbols = [];
+
 fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
   .then(response => response.text())
   .then(result => {
@@ -22,7 +22,7 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
   }
       
     );
-    console.log('results: ', allSymbols);
+    
 
   /**getAllSymbols -> this method will recieve an ENDPOINT from the api, to retrieve all of the possible symbols */
     getAllSymbols(API_SYMBOLS);
@@ -30,5 +30,13 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
     async function getAllSymbols(API_URL){
       const res = await fetch(API_URL,requestOptions);
       const dataSymbols = await res.json();
-        console.log("data was collected as followed: ", dataSymbols);
+          console.log(dataSymbols);
+      showSymbolsOptions(dataSymbols);
+
+    }
+
+    function showSymbolsOptions(symbols){
+        
+        let symbolsArray = Object.values(symbols);
+        console.log(symbolsArray);
     }
