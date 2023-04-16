@@ -9,8 +9,17 @@ var requestOptions = {
   redirect: 'follow',
   headers: myHeaders
 };
-
+let allSymbols = [];
 fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
   .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  .then(result => {
+      console.log('line 1 = ' + result);
+  })
+  .catch(error => {
+      if(error == 'NetworkError when attempting to fetch resource'){
+          console.log('We are experiencing some issues at this momeny, please, try again later');
+    }
+  }
+      
+    );
+    console.log('results: ', allSymbols);
