@@ -1,6 +1,6 @@
 
 //api:
-
+const API_SYMBOLS = "https://api.apilayer.com/fixer/symbols";
 var myHeaders = new Headers();
 myHeaders.append("apikey", "lRvWzjhj88KvkMW2L2JvWWncagN6os2C");
 
@@ -23,3 +23,12 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
       
     );
     console.log('results: ', allSymbols);
+
+  /**getAllSymbols -> this method will recieve an ENDPOINT from the api, to retrieve all of the possible symbols */
+    getAllSymbols(API_SYMBOLS);
+
+    async function getAllSymbols(API_URL){
+      const res = await fetch(API_URL,requestOptions);
+      const dataSymbols = await res.json();
+        console.log("data was collected as followed: ", dataSymbols);
+    }
