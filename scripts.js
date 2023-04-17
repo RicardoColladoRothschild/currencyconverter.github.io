@@ -1,8 +1,7 @@
 
 //api:
-const API_SYMBOLS = "https://api.apilayer.com/fixer/symbols";
-var myHeaders = new Headers();
-myHeaders.append("apikey", "lRvWzjhj88KvkMW2L2JvWWncagN6os2C");
+const API_SYMBOLS = 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols';
+
 
 //HTML tags references:
 let CURRENCY_SYMBOLS_CONTAINER = document.getElementById('currencySymbols-container');
@@ -10,12 +9,13 @@ let CURRENCY_OPTIONS_FROM = document.getElementById('currencySymbolsFrom');
 let CURRENCY_OPTIONS_TO = document.getElementById('currencySymbolsTO');
 
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow',
-  headers: myHeaders
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '8609af6517msh9892afadb4c0d7dp1966fcjsn224f8da4eaa8',
+		'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
+	}
 };
-
 
     
 
@@ -23,9 +23,9 @@ var requestOptions = {
     getAllSymbols(API_SYMBOLS);
 
     async function getAllSymbols(API_URL){
-      const res = await fetch(API_URL,requestOptions);
+      const res = await fetch(API_URL,options);
       const dataSymbols = await res.json();
-          console.log(dataSymbols);
+          
           showSymbolsOptionsFrom(dataSymbols);
           showSymbolsOptionsTo(dataSymbols);
       
