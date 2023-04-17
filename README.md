@@ -8,8 +8,8 @@ APIKEY LIFETIME: lRvWzjhj88KvkMW2L2JvWWncagN6os2C
     Once we have perform an api request for all the currency symbols, what it actually return is an array, with only 2 elements, the second element show that it was successfully, but the first element, contains an object with keys and values from all of the possible currency. 
     We are retrieving this information on the next function:
 
-    `function showSymbolsOptions(symbols){
+    function showSymbolsOptions(symbols){
         
         let symbolsArray = Object.values(symbols);
         console.log(symbolsArray);
-    }`
+    }

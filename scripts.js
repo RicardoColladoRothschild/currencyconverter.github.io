@@ -38,5 +38,11 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
     function showSymbolsOptions(symbols){
         
         let symbolsArray = Object.values(symbols);
-        console.log(symbolsArray);
+        let symbolsObjectKeys = Object.keys(symbolsArray[1]);
+        let symbolsObjectVlue = Object.values(symbolsArray[1]);
+
+          for(let index = 0; index < symbolsObjectKeys.length;index++){
+
+              console.log(`Object key: ${symbolsObjectKeys[index]} | object value: ${symbolsObjectVlue[index]}`);
+          }
     }
