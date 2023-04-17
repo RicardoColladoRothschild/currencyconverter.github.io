@@ -124,3 +124,15 @@ header .subtitle-container{
     font-size: 3.9rem;
 
 }
+
+footer{
+    width:100%;
+    height: 50px;
+    display:grid;
+    place-items: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-color: var(--mainColor);
+    color:var(--letterColor);
+
+}
