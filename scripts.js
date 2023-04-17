@@ -7,6 +7,10 @@ const API_SYMBOLS = 'https://currency-conversion-and-exchange-rates.p.rapidapi.c
 let CURRENCY_SYMBOLS_CONTAINER = document.getElementById('currencySymbols-container');
 let CURRENCY_OPTIONS_FROM = document.getElementById('currencySymbolsFrom');
 let CURRENCY_OPTIONS_TO = document.getElementById('currencySymbolsTO');
+const form = document.getElementById('currencySymbols-container');
+const amountField = document.getElementById('amount');
+const fromSelect = document.getElementById('currencySymbolsFrom');
+const toSelect = document.getElementById('currencySymbolsTO');
 
 
 const options = {
@@ -71,4 +75,24 @@ const options = {
           });
   }
 
-  
+  form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    let from = fromSelect.value;
+    let to = toSelect.value;
+      const amountToConvert = amountField.value;
+      
+        if(amountToConvert !== ''){
+          getConvertion(from,to,amountToConvert);
+        }else{
+          alert('Missing amount');
+        }
+
+
+  });
+
+  async function getConvertion(fromCurrency, toCurrency, amount){
+
+    const res = await fetch(`https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`,options);
+    const data = await res.json();
+    return data['result'];
+}

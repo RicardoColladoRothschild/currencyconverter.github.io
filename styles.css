@@ -23,6 +23,7 @@ header{
     flex-direction: column;
     justify-content: center;
     text-align: center;
+
 }
 
 header .title-container{
@@ -37,10 +38,12 @@ header .title-container{
 
 header .subtitle-container{
     font-size: 2.0rem;
-    line-height: 1.6rem;
+    line-height: 2.0rem;
     font-weight: 500;
     color:var(--letterColor);
     font-weight: 500;
+    margin-bottom: 10PX;
+
 }
 
 .container{
