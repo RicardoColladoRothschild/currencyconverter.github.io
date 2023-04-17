@@ -52,6 +52,7 @@ header .subtitle-container{
     display:grid;
     place-items: center;
     background-color: var(--secondaryColor);
+    
 }
 
 .logo{
@@ -109,12 +110,15 @@ header .subtitle-container{
 .resultView{
     width:150px;
     height: 30px;
+    display:grid;
+    place-items: center;
+    text-align: center;
     
 }
 
 .resultsParragraph{
     color:yellowgreen;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 3.9rem;
 
 }
