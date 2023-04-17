@@ -36,8 +36,9 @@ header .title-container{
 
 
 header .subtitle-container{
-    font-size: 1.8rem;
+    font-size: 2.0rem;
     line-height: 1.6rem;
+    font-weight: 500;
     color:var(--letterColor);
     font-weight: 500;
 }
@@ -59,9 +60,33 @@ header .subtitle-container{
 
 
 }
+.currencySymbols-container{
+    width:288px;
+    height: 300px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 35px;
+    background-color: var(--mainColor);
+    border:none;
+    border-radius: 8px;
+    box-shadow: 4px 8px 16px rgba(0,0,0,0.75);
 
-.currencySymbols{
-    width:150px;
+
+}
+.currencySymbols-container p{
+    font-size: 2.1rem;
+    line-height: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: 300;
+}
+.symbolsCurrency-container{
+    width:125px;
     height: 31px;
-    
+    border: none;
+    padding:8px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: beige;
+    box-shadow: 4px 8px 16px rgba(0,0,0,0.75);
 }

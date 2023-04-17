@@ -15,18 +15,7 @@ var requestOptions = {
   headers: myHeaders
 };
 
-fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
-  .then(response => response.text())
-  .then(result => {
-      console.log('line 1 = ' + result);
-  })
-  .catch(error => {
-      if(error == 'NetworkError when attempting to fetch resource'){
-          console.log('We are experiencing some issues at this momeny, please, try again later');
-    }
-  }
-      
-    );
+
     
 
   /**getAllSymbols -> this method will recieve an ENDPOINT from the api, to retrieve all of the possible symbols */
@@ -37,6 +26,7 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
       const dataSymbols = await res.json();
           console.log(dataSymbols);
       showSymbolsOptions(dataSymbols);
+      
 
     }
 
@@ -53,6 +43,7 @@ fetch("https://api.apilayer.com/fixer/symbols", requestOptions)
                   
                   let symbolOption = document.createElement('option');
                   symbolOption.setAttribute('value',symbol)
+                  symbolOption.classList.add('symbolsOptions');
                   symbolOption.innerHTML = symbol;
                   CURRENCY_OPTIONS.append(symbolOption);
             });
