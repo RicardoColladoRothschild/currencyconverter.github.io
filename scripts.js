@@ -6,7 +6,8 @@ myHeaders.append("apikey", "lRvWzjhj88KvkMW2L2JvWWncagN6os2C");
 
 //HTML tags references:
 let CURRENCY_SYMBOLS_CONTAINER = document.getElementById('currencySymbols-container');
-let CURRENCY_OPTIONS = document.getElementById('currencySymbols');
+let CURRENCY_OPTIONS_FROM = document.getElementById('currencySymbolsFrom');
+let CURRENCY_OPTIONS_TO = document.getElementById('currencySymbolsTO');
 
 
 var requestOptions = {
@@ -25,12 +26,13 @@ var requestOptions = {
       const res = await fetch(API_URL,requestOptions);
       const dataSymbols = await res.json();
           console.log(dataSymbols);
-      showSymbolsOptions(dataSymbols);
+          showSymbolsOptionsFrom(dataSymbols);
+          showSymbolsOptionsTo(dataSymbols);
       
 
     }
 
-    function showSymbolsOptions(symbols){
+    function showSymbolsOptionsFrom(symbols){
         
         let symbolsArray = Object.values(symbols);
         let symbolsObjectKeys = Object.keys(symbolsArray[1]);
@@ -45,6 +47,26 @@ var requestOptions = {
                   symbolOption.setAttribute('value',symbol)
                   symbolOption.classList.add('symbolsOptions');
                   symbolOption.innerHTML = symbol;
-                  CURRENCY_OPTIONS.append(symbolOption);
+                  CURRENCY_OPTIONS_FROM.append(symbolOption);
             });
     }
+
+
+    function showSymbolsOptionsTo(symbols){
+        
+      let symbolsArray = Object.values(symbols);
+      let symbolsObjectKeys = Object.keys(symbolsArray[1]);
+      let symbolsObjectVlue = Object.values(symbolsArray[1]);
+
+        
+        
+
+          symbolsObjectKeys.forEach((symbol)=>{
+                
+                let symbolOption = document.createElement('option');
+                symbolOption.setAttribute('value',symbol)
+                symbolOption.classList.add('symbolsOptions');
+                symbolOption.innerHTML = symbol;
+                CURRENCY_OPTIONS_TO.append(symbolOption);
+          });
+  }
